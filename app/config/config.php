@@ -6,7 +6,7 @@
     define('DB_HOST', 'localhost');
     define('DB_USER', 'root');
     define('DB_PASS', '');
-    define('DB_NAME', 'cdlp');
+    define('DB_NAME', '');
 
     //// APP Root
     define('APPROOT', dirname(dirname(__FILE__)));
@@ -19,7 +19,7 @@
     define('URLROOT', 'http://localhost/cdlp');
 
     ////// SITE Name
-    define('SITENAME', 'cdlp');
+    define('SITENAME', '');
 
 
 
