@@ -55,8 +55,16 @@ e.g my own is my_jobber.php
 10. you can equally click on the run button to start or run it.
 
 
+11. on the cron job file app/cron/my_jobber.php
+12. Ensure the all the file directory that is "require" in the my_jobber.php is accurate according to own server 
+folder directory
 
 
+
+# Note
+Ensure all the necessary folder directory is updated, in order for the system to run effectively
+
+Thank You
 
 
 
