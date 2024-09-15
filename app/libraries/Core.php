@@ -4,13 +4,13 @@
    * Creates URL & loads core controller
    * URL FORMAT - /controller/method/params
    */
+
   class Core {
     protected $currentController = 'usersController';
     protected $currentMethod = 'index';
     protected $params = [];
 
     public function __construct(){
-     /// print_r($this->getUrl());
      $url = $this->getUrl();
 
      
@@ -25,7 +25,7 @@
      }
     
 
-     //////// require the controller
+     //////// require the controller //
      require_once '../app/controllers/' . $this->currentController . '.php';
 
      //////Instantiate controller

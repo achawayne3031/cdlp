@@ -16,7 +16,6 @@
 
             /////Insantiate model
             return new $model();
-
         }
 
 

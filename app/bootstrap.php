@@ -8,7 +8,7 @@
     ////// Load Helper
     require_once 'helpers/url_helper.php';
 
-    ////// Load Session Helper
+    ////// Load Session Helper /////
     require_once 'helpers/session_helper.php';
 
     

@@ -7,11 +7,11 @@
             $this->userModel = $this->model('User');
         }
 
-        
+    
             
         public function index(){
             if(isLoggedIn()){
-            redirect('emailController');
+                redirect('emailController');
             }
             $data = [
                 'email' => '',
@@ -175,7 +175,6 @@
                 ];
 
                 $this->view('users/login', $data);
-
             }
         }
 
@@ -197,10 +196,6 @@
             session_destroy();
             redirect('usersController/login');
         }
-
-    
-
     }
-
 
 ?>

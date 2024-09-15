@@ -3,7 +3,6 @@
 
     class EmailController extends Controller{
 
-
         public function __construct(){
             $this->scheduledEmailModel = $this->model('ScheduledEmail');
         }
@@ -16,11 +15,6 @@
           }
 
           $scheduledEmail = $this->scheduledEmailModel->getScheduledEmails();
-
-          foreach ($scheduledEmail as $value) {
-            # code...
-            $value->mins = getTimeDifference($value->scheduled_time);
-          }
 
           $data = [
               'scheduledEmail' => $scheduledEmail
@@ -121,11 +115,6 @@
 
             }
         }
-
-        
-
-
-
     }
 
 
