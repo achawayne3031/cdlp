@@ -46,8 +46,12 @@
                 if(empty($data['email'])){
                     $data['email_err'] = 'Please enter email';
                 }else{
-                    if($this->userModel->findUserByEmail($data['email'])){
-                        $data['email_err'] = 'Email has been taken';
+                    if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                        $data['email_err'] = 'Invalid email address';
+                    }else{
+                        if($this->userModel->findUserByEmail($data['email'])){
+                            $data['email_err'] = 'Email has been taken';
+                        }
                     }
                 }
 
