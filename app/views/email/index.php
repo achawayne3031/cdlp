@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <a href=" <?php echo URLROOT; ?>/email/add" class="btn btn-primary pull-right">
+            <a href=" <?php echo URLROOT; ?>/emailController/add" class="btn btn-primary pull-right">
                 <span class="fa fa-pencil"></span>
                 Schedule Email
             </a>
@@ -31,6 +31,8 @@
             <th>Scheduled Time</th>
             <th>Status</th>
             <th>Attempts</th>
+            <th>Mins</th>
+
           </tr>
         </thead>
         <tbody>
@@ -42,6 +44,9 @@
               <td><?php echo $scheduledEmail->scheduled_time; ?></td>
               <td><?php echo $scheduledEmail->status; ?></td>
               <td><?php echo $scheduledEmail->attempts; ?></td>
+              <td><?php echo $scheduledEmail->mins; ?></td>
+
+
             </tr>
           <?php  } ?>
         </tbody>

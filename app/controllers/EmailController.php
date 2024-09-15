@@ -1,23 +1,27 @@
 
-
-
-
 <?php
 
-    class Email extends Controller{
+    class EmailController extends Controller{
 
-       /// private $postModel;
+
         public function __construct(){
             $this->scheduledEmailModel = $this->model('ScheduledEmail');
         }
         
+
         
         public function index(){
           if(!isLoggedIn()){
-            redirect('users/login');
+            redirect('usersController/login');
           }
 
           $scheduledEmail = $this->scheduledEmailModel->getScheduledEmails();
+
+          foreach ($scheduledEmail as $value) {
+            # code...
+            $value->mins = getTimeDifference($value->scheduled_time);
+          }
+
           $data = [
               'scheduledEmail' => $scheduledEmail
           ];
@@ -45,7 +49,7 @@
                     'subject_err' => '',
                     'body_err' => '',
                     'scheduled_time_err' => ''
-                
+        
                 ];
 
               
@@ -82,27 +86,17 @@
                 if(empty($data['recipient_email_err']) && empty($data['subject_err']) && empty($data['scheduled_time_err']) && empty($data['body_err'])){
                 
                     /// Save ////
-                    $addedMail = $this->scheduledEmailModel->addMailData($data);
+                    $email = new Email();
+                    $addedMail = $email->scheduleEmail($data);
 
-
-                    // $from = "christinotochukwu@gmail.com";
-                  
-                    // $headers = "From:" . $from;
-                    // if(mail($data['recipient_email'], $data['subject'], $data['body'], $headers)) {
-                    //     echo "The email message was sent.";
-                    // } else {
-                    //     echo "The email message was not sent.";
-                    // }
-
-                    
-
+                    ////$addedMail = $this->scheduledEmailModel->addMailData($data);
 
                     if($addedMail){
                         flash('automated_message', 'Automated email notification has been added');
-                        redirect('email');
+                        redirect('emailController');
                     }else{
                         flash('automated_message', 'Error occured during adding a new email notification');
-                        redirect('email');
+                        redirect('emailController');
                     }
                 }else{
                     //// Load views with error
@@ -126,9 +120,12 @@
                 $this->view('email/add', $data);
 
             }
-
-         
         }
 
         
+
+
+
     }
+
+

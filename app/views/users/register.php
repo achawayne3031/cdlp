@@ -9,7 +9,7 @@
                     <h2>Create Account</h2>
                     <p>Please fill out the form to register with us</p>
 
-                    <form action="<?php echo URLROOT; ?>/users/register" method="POST">
+                    <form action="<?php echo URLROOT; ?>/usersController/register" method="POST">
 
                         <div class="form-group">
                             <label for="name">Name: <sup>*</sup></label>
@@ -35,7 +35,7 @@
                                 <input type="submit" value="Register" class="btn btn-success btn-block">
                             </div>
                             <div class="col">
-                                <a href="<?php echo URLROOT; ?>/users/login" class="btn btn-light btn-block">Have an account? Login</a>
+                                <a href="<?php echo URLROOT; ?>/usersController/login" class="btn btn-light btn-block">Have an account? Login</a>
                             </div>
                         </div>
                     </form>

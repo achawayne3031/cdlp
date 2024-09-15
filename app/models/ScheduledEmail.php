@@ -10,11 +10,43 @@ class ScheduledEmail{
         $this->db = new Database;
     }
 
+    
+    public function getPendingEmails(){
+        $this->db->query("SELECT * FROM scheduled_emails WHERE `status` = 'pending' ORDER BY id DESC");
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
+    
+    public function getFailedEmails(){
+        $this->db->query("SELECT * FROM scheduled_emails WHERE `status` = 'failed' ORDER BY id DESC");
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
+
 
     public function getScheduledEmails(){
         $this->db->query("SELECT * FROM scheduled_emails ORDER BY id DESC");
         $results = $this->db->resultSet();
         return $results;
+    }
+
+
+    
+
+
+    public function updateScheduledEmail($data){
+        $this->db->query("UPDATE scheduled_emails SET attempts = :attempts, status = :status WHERE id = :id");
+        $this->db->bind(':id', $data->id);
+        $this->db->bind(':status', $data->status);
+        $this->db->bind(':attempts', $data->attempts);
+
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 

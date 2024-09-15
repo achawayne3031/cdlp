@@ -15,14 +15,14 @@
      
       <?php if(isset($_SESSION['user_id'])){ ?>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT . '/users/logout'; ?>">Logout<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="<?php echo URLROOT . '/usersController/logout'; ?>">Logout<span class="sr-only">(current)</span></a>
         </li>
       <?php }else{ ?>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT . '/users/register'; ?>">Register<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo URLROOT . '/usersController/register'; ?>">Register<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT .'/users/login'; ?>">Login</a>
+            <a class="nav-link" href="<?php echo URLROOT .'/usersController/login'; ?>">Login</a>
           </li>
         <?php } ?>
      

@@ -10,7 +10,7 @@
                     <p>Please fill out the form to register with us</p>
                    
 
-                    <form action="<?php echo URLROOT; ?>/email/add" method="POST">
+                    <form action="<?php echo URLROOT; ?>/emailController/add" method="POST">
 
                         <div class="form-group">
                             <label for="recipient_email">Recipient Email,: <sup>*</sup></label>

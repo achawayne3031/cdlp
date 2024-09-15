@@ -11,11 +11,23 @@
     ////// Load Session Helper
     require_once 'helpers/session_helper.php';
 
+    
+    ////// Load Func Helper
+    require_once 'helpers/func_helper.php';
 
-    //////Auto load Core Libraries
+
+
+
+
+ 
+    //////Auto load Core Libraries //////
     spl_autoload_register(function($className){
         require_once 'libraries/' . $className . '.php';
     });
+
+
+
+    
 
 
 
