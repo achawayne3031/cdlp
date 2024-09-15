@@ -139,23 +139,19 @@
                 }
 
                 ///// check email/user
-                if($this->userModel->findUserByEmail($data['email'])){
-
-                }else{
+                if(!$this->userModel->findUserByEmail($data['email'])){
                     $data['email_err'] = 'no user found';
                 }
 
-
                 ///////// Make sure errors are empty
                 if(empty($data['email_err']) && empty($data['password_err'])){
-                    ////// Validated
-                    //die("SUCCESS");
+                    ////// Validated //
 
                     //////Check and set logged in user
                     $loggedInUser = $this->userModel->login($data['email'], $data['password']);
 
                     if($loggedInUser){
-                        //// Create session
+                        //// Create session //
                         $this->createUserSession($loggedInUser);
                     }else{
                         $data['password_err'] = 'password incorrect';
